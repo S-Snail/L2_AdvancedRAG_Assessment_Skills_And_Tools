@@ -102,3 +102,12 @@ def get_ali_rerank(top_n=3):
         model=ALI_TONGYI_RERANK,
         dashscope_api_key=os.getenv(ALI_TONGYI_RERANK)
     )
+
+
+def get_openai_client():
+    from openai import OpenAI
+    return OpenAI(
+        api_key=os.getenv(ALI_TONGYI_API_KEY_SYSVAR_NAME),
+        base_url=ALI_TONGYI_URL
+    )
+
