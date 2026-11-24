@@ -3,7 +3,7 @@ import os
 from dashscope.common.constants import DASHSCOPE_API_KEY_ENV
 from langchain_community.document_compressors import DashScopeRerank
 from langchain_community.embeddings import DashScopeEmbeddings
-from langchain_openai import OpenAI
+from langchain_openai import OpenAI, ChatOpenAI
 
 ALI_TONGYI_API_KEY_SYSVAR_NAME = "DASHSCOPE_API_KEY"
 ALI_TONGYI_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
@@ -33,7 +33,7 @@ def get_lc_model_client(
     :param temperature:
     :return:
     """
-    return OpenAI(
+    return ChatOpenAI(
         api_key=api_key,
         base_url=base_url,
         model=model,
