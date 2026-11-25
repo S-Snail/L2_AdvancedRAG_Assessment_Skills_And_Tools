@@ -98,9 +98,12 @@ def get_ali_rerank(top_n=3):
     :param top_n:
     :return:
     """
+    import dashscope
     return DashScopeRerank(
         model=ALI_TONGYI_RERANK,
-        dashscope_api_key=os.getenv(ALI_TONGYI_RERANK)
+        dashscope_api_key=os.getenv(ALI_TONGYI_API_KEY_SYSVAR_NAME),
+        top_n=top_n,
+        client=dashscope.TextReRank
     )
 
 
